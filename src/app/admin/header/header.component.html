@@ -1,0 +1,21 @@
+<nav class="navbar bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand">
+      <img src="https://i.pinimg.com/474x/d4/d3/c0/d4d3c02f855019b7357b6c46da2124da.jpg" width="40" height="30"
+        class="d-inline-block align-text-top">
+    </a>
+    <div class="dropdown">
+      <button class="btn btn-dark btn-sm toggle" data-bs-toggle="dropdown">
+        <a class="profile ">
+          <i class="fa-solid fa-user "></i>
+          {{Name}}
+        </a>
+      </button>
+      <div class="logout">
+        <ul class="dropdown-menu">
+          <li class="dropdown-item" (click)="goLoginPagePage()">Log Out</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

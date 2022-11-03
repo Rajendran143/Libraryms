@@ -1,0 +1,14 @@
+<div class="container">
+    <button class="btn btn-primary btn-sm" (click)="getData()" style="margin-top:3%;margin-bottom: 3%;">DisplayData</button>
+    <div class="row">
+        <div class="col-lg-4" *ngFor="let data of dataLists">
+            <div class="card" style="width: 18rem;" style="background-color:green;color:white">
+                <div class="card-body">
+                    <p> <b>Name:</b> {{data.name}}</p>
+                    <p><b>Email:</b> {{data.email}}</p>
+                    <p><b>Mobile</b> {{data.number}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

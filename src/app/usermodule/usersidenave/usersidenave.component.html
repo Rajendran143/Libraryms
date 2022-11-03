@@ -1,0 +1,43 @@
+<button class="btn float-end btn1 position-absolute top-0 start-0" role="button">
+
+  <i class="fas fa-bars" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
+    aria-controls="offcanvasScrolling"></i>
+
+</button>
+
+
+<div class="offcanvas offcanvas-start bg-dark" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+  id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel" style="width: 20%;">
+  <div class="offcanvas-header">
+
+    <button type="button" class="cancel" data-bs-dismiss="offcanvas" aria-label="Close"><i
+        class="fa-solid fa-xmark"></i></button>
+  </div>
+
+  <div class="offcanvas-body">
+    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start">
+
+      <li class="icons" routerLink="/usermodule/userdashboard">
+        <a data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+          <i class="fa-solid fa-chart-line"></i>
+          <span class="text">Dashboard</span>
+        </a>
+      </li>
+      
+      <li class="icons" routerLink="/usermodule/userbooks">
+        <a class="nav-link px-0">
+          <i class="fa-solid fa-book"></i>
+          <span class="text">Books</span>
+        </a>
+      </li>
+
+      <li class="icons" routerLink="/usermodule/transections">
+        <a class="nav-link px-0">
+          <i class="fa-solid fa-landmark"></i>
+          <span class="text">
+            History
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>

@@ -1,0 +1,88 @@
+<app-header></app-header>
+<app-sidenav></app-sidenav>
+
+<section class="main">
+  <div class="container ">
+    <h3 class="text">Return Books Details </h3>
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-lg-12 col-md-8 col-lg-6 ">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Username</th>
+              <th scope="col">BookId</th>
+              <th scope="col">Issue Date</th>
+              <th scope="col">Exp Return Date</th>
+              <th scope="col">Act Return Data</th>
+              <th scope="col">Approval Status</th>
+              <th scope="col">Remark</th>
+              <th scope="col">Fine</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let transection of readTransections?.data">
+            <tr>
+              <td class="1">{{transection?.username}}</td>
+              <td class="1">{{transection?.book_id}}</td>
+              <td class="1">{{transection?.issued_date}}</td>
+              <td class="1">{{transection?.exp_returndate}}</td>
+
+              <td>
+                <input type="date" class="form-control" placeholder="Actual Return Date" value=""
+                  [(ngModel)]="transection.act_returneddate">
+              </td>
+              <td>
+                <input type="text" class="form-control" placeholder="Appovel Status" [(ngModel)]="transection.t_status">
+              </td>
+              <td>
+                <textarea class="form-control" cols="12" rows="1" placeholder="Remark" value=""
+                  [(ngModel)]="transection.null"></textarea>
+              </td>
+              <td class="2">
+                <input type="number" class="form-control" placeholder="Transection Fine" value=""
+                  [(ngModel)]="transection.t_fine">
+              </td>
+
+              <td>
+                <i class="fa-solid fa-check" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                  (click)="readReturnBooks(transection)"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- "t_id": 20007,
+            "user_id": 21017,
+            "book_id": 2029,
+            "copy_id": 3072,
+            "issued_date": "2022-08-02",
+            "exp_returndate": "2022-08-09",
+            "act_returneddate": "2022-08-15",
+            "t_fine": 30,
+            "t_createddate": "2022-08-02",
+            "t_updateddate": "2022-08-08",
+            "t_status": 0,
+            "username": "ramcharan@123" -->
+<!--modele-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        you want to approve return request...?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-primary" (click)="returnBooks()">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>

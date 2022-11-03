@@ -1,0 +1,78 @@
+.bookText {
+    color: white;
+    padding-top: 35px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: lighter;
+}
+
+.card-body {
+    font-size: 11px;
+
+    h5 {
+        font-size: 8px;
+    }
+}
+
+
+.main {
+    background-color: black;
+
+    .addButton {
+        float: right;
+        margin-top: 9%;
+        margin-left: 2%;
+
+        .btn {
+            background-color: green;
+            border-color: white;
+        }
+
+    }
+
+    .bookHeading {
+        color: white;
+        text-align: center;
+        padding-top: 30px;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 350%;
+        font-weight: 500;
+    }
+
+    .card:hover {
+        border: 2px solid #e7e7e7;
+        border-radius: 4px;
+        padding: .5rem;
+        height: calc(100% - 15px);
+        margin-bottom: 10px;
+        cursor: pointer;
+
+
+        -ms-transform: scale(1);
+        /* IE 9 */
+        -webkit-transform: scale(1);
+        /* Safari 3-8 */
+        transform: scale(1);
+
+        img {
+            height: 300px;
+            max-width: 100%;
+        }
+
+        .btn {
+            margin-left: 10.5%;
+            cursor: pointer;
+        }
+    }
+
+
+}
+
+.modal-content {
+    width: 72%;
+    margin-left: 17%;
+
+    .cardpoup {
+        padding: 5%;
+    }
+
+}

@@ -1,0 +1,57 @@
+ 
+ .main {
+ background-color: black;
+    background-size: cover;
+    padding: 110px 0px;
+    text-align: -webkit-center;
+    .adduser{
+        .btn{
+            float: right;
+            margin-top: -7%;
+            margin-right: 7%;
+            background-color: green;
+            border-color: white;
+        }
+    }
+ }
+ .card{
+    border-radius: 8px;
+    width: 303px;
+    padding: 30px 25px;
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: 10%; 
+
+
+    
+ }
+ 
+ 
+
+ .card h1{
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 37px;
+ }
+
+ img {
+    border-radius: 50%;
+    width: 132px;
+    height: 128px;
+ }
+
+ .phara {
+    text-align: left;
+    justify-content: left;
+    font-weight: 400;
+ }
+
+ .btn {
+    margin-left: 4%;
+    max-width: 100px;
+ }
+ .modal-content{
+    width: 72%;
+    padding: 6%;
+    margin-left: 16%;
+ }

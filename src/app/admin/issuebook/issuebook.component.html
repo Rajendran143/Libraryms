@@ -1,0 +1,76 @@
+<app-header></app-header>
+<app-sidenav></app-sidenav>
+
+<section class="main">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <select class="form-select" aria-label="Default select example" [(ngModel)]="filter" (change)="searchByUsername($event)">
+          <option selected>Select Username</option>
+          <option value="{{users?.u_username}}" *ngFor="let users of readusernames?.data">
+            {{users?.u_username}}
+          </option>
+        </select>
+      </div>
+
+    </div>
+    <h3 class="text">Issue Books Details</h3>
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-lg-12 col-md-8 col-lg-6 ">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Username</th>
+              <th scope="col">UserId</th>
+              <th scope="col">BookId</th>
+              <th scope="col">Issue Date</th>
+              <th scope="col">Exp Return Date</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let transection of readSearchTransection?.data">
+              <td>{{filter}}</td>
+              <td>{{transection?.user_id}}</td>
+              <td>{{transection?.book_id}}</td>
+              <td>{{transection?.issued_date}}</td>
+              <td>{{transection?.exp_returndate}}</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- "t_id": 20007,
+            "user_id": 21017,
+            "book_id": 2029,
+            "copy_id": 3072,
+            "issued_date": "2022-08-02",
+            "exp_returndate": "2022-08-09",
+            "act_returneddate": "2022-08-15",
+            "t_fine": 30,
+            "t_createddate": "2022-08-02",
+            "t_updateddate": "2022-08-08",
+            "t_status": 0,
+            "username": "ramcharan@123" -->
+
+
+<!-- serch transection by username
+
+   "t_id": 20017,
+            "user_id": 21018,
+            "book_id": 2031,
+            "copy_id": 3084,
+            "issued_date": "2022-08-25",
+            "exp_returndate": "2022-09-01",
+            "act_returneddate": null,
+            "t_fine": null,
+            "t_createddate": "2022-08-25",
+            "t_updateddate": "2022-08-25",
+            "t_status": 1,
+            "request_status": 0,
+            "approval_status": 3,
+            "rejected_remark": null -->

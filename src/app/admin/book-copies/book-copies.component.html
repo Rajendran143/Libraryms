@@ -1,0 +1,82 @@
+<app-header></app-header>
+<app-sidenav></app-sidenav>
+
+<section class="main">
+  <div class="container ">
+    <h3 class="text">Book Copies</h3>
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-lg-12 col-md-8 col-lg-6 ">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">BookName</th>
+              <th scope="col">No Of Books</th>
+              <th scope="col">BookCopies</th>
+              <th scope="col">
+              </th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let bookname of booklists?.data">
+            <tr class="tabeltext">
+              <th scope="row"></th>
+              <td class="booktitle">{{bookname?.b_title}}</td>
+              <td class="bookcoutnt">{{bookname?.b_count}}</td>
+              <td>
+                <i class="fa-solid fa-check" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                  (click)="PassBookId(bookname?.b_id)"></i>
+              </td>
+              <td>
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- b_author: "Tony Judt"
+b_catagory: "History"
+b_count: 9
+b_createddate: null
+b_description: "Postwar: A History of Europe Since 1945 is a 2005 non-fiction book written by British historian and scholar Tony Judt who specialised in European history. The book examines six decades of European history from the end of World War II in 1945 up to 2005"
+b_id: 2019
+b_status: 0
+b_title: "Postwar: A History Of Europe Since 1945"
+b_updateddate: "2022-08-24 -->
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Copies of Book</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" *ngFor="let copy of readcopy.data">
+        <div>
+          <Span>
+            CopyId:-
+            {{copy?.c_id}}
+          </Span>
+        </div>
+        <div>
+          <Span>
+            Copies Availability:-
+            {{copy?.c_availability}}
+          </Span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="ReadCopies()">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- c_availability: 0
+   c_id: 3068 -->

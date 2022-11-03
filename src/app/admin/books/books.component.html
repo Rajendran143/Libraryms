@@ -1,0 +1,107 @@
+<app-header></app-header>
+<app-sidenav></app-sidenav>
+
+<section class="main">
+  <div class="container">
+    <div class="addButton">
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Book</button>
+    </div>
+    <h1 class="bookHeading">
+      Books Section
+    </h1>
+    <h2 class="bookText">
+      Comic Books Section
+    </h2>
+    <div class="row">
+      <div class="col-lg-4 col-12" *ngFor='let book of readBooks?.data'>
+        <div class="card">
+          <img src="https://images-na.ssl-images-amazon.com/images/I/51TPzOHPwzL.jpg" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">
+              <b>Title:</b>{{book?.b_title}}
+            </h5>
+            <h5>
+              <b>Author:</b> {{book?.b_author}}
+            </h5>
+            <h5>
+              <b>Catagory</b> {{book?.b_catagory}}
+            </h5>
+            <p>
+              <b>Description:</b> {{book?.b_description}}
+            </p>
+            <div class="Update">
+              <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Update</button>
+              <button class="btn btn-danger" onclick="document.getElementById('id01').style.display='block'"
+                data-bs-toggle="modal" data-bs-target="#staticBackdrop">Delete</button>
+            </div>
+
+            <!-- Delete Books Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+              aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Delete</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    are you sure you want to delete......?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                    <button type="button" class="btn btn-danger" (click)="deleteBooks(book.b_id)">Yes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Add Books Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="cardpoup">
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Book Name</label>
+            <input type="text" class="form-control" [(ngModel)]="addBooksData.b_title">
+          </div>
+          <div class="form-group">
+            <label>Author Name</label>
+            <input type="text" class="form-control" [(ngModel)]="addBooksData.b_author">
+          </div>
+          <div class="form-group">
+            <label>Category</label>
+            <input type="text" class="form-control" [(ngModel)]="addBooksData.b_catagory">
+          </div>
+          <div class="form-group">
+            <label>Image</label>
+            <input type="file" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Number of Books</label>
+            <input type="number" class="form-control" [(ngModel)]="addBooksData.b_count" />
+          </div>
+          <div class="form-group">
+            <label>Descriptin</label>
+            <textarea name="text" id="text" class="form-control" cols="37" rows="2" style="border-radius: 8px"
+              [(ngModel)]="addBooksData.b_description"></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary " (click)="addBooks(addBooksData)">Add Book</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

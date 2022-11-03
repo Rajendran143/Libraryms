@@ -1,0 +1,171 @@
+<app-header></app-header>
+<app-sidenav></app-sidenav>
+
+
+<section class="main">
+  <div class="adduser">
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add User</button>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-12" *ngFor="let user of usersList?.data">
+        <div class="card">
+          <div class="imagecard">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2paNURw1DBfUC5w4I3m3EoIo7vHLpWxtXCg&usqp=CAU"
+              alt="">
+          </div>
+          <h5 clas="profilename">
+            <span id="name"> {{user.u_name}}</span>
+          </h5>
+          <p class="phara">
+            <b>Email:-</b>
+            <span id="email">
+              {{user.u_email}}
+            </span>
+          </p>
+          <p class="phara"><b>Mobile:-</b>
+            <span id="mobileNumber">
+              {{user.u_phno}}
+            </span>
+          </p>
+          <p class="phara"><b>DOB:-</b>
+            <span id="birthDate">
+              {{user.u_dob}}
+            </span>
+          </p>
+          <p class="phara"><b>Status:-</b>
+            <span id="adress"> {{user.u_status}}</span>
+          </p>
+          <div class="click">
+            <button type="button" class="btn btn-primary" id="final" data-bs-toggle="modal"
+              data-bs-target="#exampleModal">Update</button>
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+              (click)="ActionDeleteUser(user.u_id)">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<!-- Add Modal -->
+<form [formGroup]="addUserReactiveform">
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="cardpoup">
+          <div class="modal-body">
+
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" class="form-control" [(ngModel)]="createUser.u_name" formControlName="uname"
+                [class.is-invalid]="addUserReactiveform.get('uname').invalid && addUserReactiveform.get('uname').touched">
+              <small class="text-danger"
+                [class.d-none]="addUserReactiveform.get('uname').valid || addUserReactiveform.get('uname').untouched">Valid
+                Name is Required</small>
+            </div>
+
+            <div class="form-group">
+              <label>userName</label>
+              <input type="text" class="form-control" [(ngModel)]="createUser.u_username" formControlName="username"
+                [class.is-invalid]="addUserReactiveform.get('username').invalid && addUserReactiveform.get('username').touched">
+              <small
+                [class.d-none]="addUserReactiveform.get('username').valid ||addUserReactiveform.get('username').untouched"
+                class="text-danger">Valid Username is Required</small>
+            </div>
+
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" class="form-control" [(ngModel)]="createUser.u_phno" formControlName="phonenumber"
+                [class.is-invalid]="addUserReactiveform.get('phonenumber').invalid && addUserReactiveform.get('phonenumber').touched">
+              <small class="text-danger"
+                [class.d-none]="addUserReactiveform.get('phonenumber').valid ||addUserReactiveform.get('phonenumber').untouched">Phone
+                number should be 10 digit</small>
+            </div>
+
+            <div class="form-group">
+              <label>Email</label>
+              <input type="emain" class="form-control" [(ngModel)]="createUser.u_email" formControlName="email"
+                [class.is-invalid]="addUserReactiveform.get('email').invalid && addUserReactiveform.get('email').touched">
+              <small class="text-danger"
+                [class.d-none]="addUserReactiveform.get('email').valid || addUserReactiveform.get('email').untouched">Valid
+                email is required</small>
+            </div>
+
+            <div class="form-group">
+              <label>Date Of Birth</label>
+              <input type="date" class="form-control" [(ngModel)]="createUser.u_dob" formControlName="dob"
+                [class.is-invalid]="addUserReactiveform.get('dob').invalid && addUserReactiveform.get('dob').touched">
+              <small class="text-danger"
+                [class.d-none]="addUserReactiveform.get('dob').valid || addUserReactiveform.get('dob').untouched">
+                your date of birth should be in dd/mm/yyyy.
+              </small>
+            </div>
+
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" class="form-control" [(ngModel)]="createUser.u_password" formControlName="password"
+                [class.is-invalid]="addUserReactiveform.get('password').invalid && addUserReactiveform.get('password').touched">
+              <small class="text-danger"
+                [class.d-none]="addUserReactiveform.get('password').valid || addUserReactiveform.get('password').untouched">
+                Enter correct password
+              </small>
+            </div>
+
+            <div class="form-group">
+              <label>Adress</label>
+              <textarea name="text" id="" cols="34" class="form-control" rows="2" style="border-radius:8px"></textarea>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" (click)="AddUser(createUser)">Add User</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</form>
+
+
+<!-- 
+"u_name": "prezz",
+
+"u_username": "prezz@123",
+
+"u_password": "prezz111",
+
+"u_email": "prezz@gmail.com",
+
+"u_phno": 99998888,
+
+"u_dob" : "2022-07-25" -->
+
+
+<!-- Delete  Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Delete</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        are you sure you want to delete......?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-danger" (click)="deleteUser()">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>

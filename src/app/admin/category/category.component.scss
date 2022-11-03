@@ -1,0 +1,27 @@
+.main {
+    background-color: black;
+    padding: 8% 0;
+
+    .btn {
+        float: right;
+        margin-right: 5%;
+        margin-top: -5%;
+        background-color: green;
+        border-color: white;
+    }
+
+    .container {
+        padding-top: 3%;
+        padding-bottom: 7%;
+
+        .list-group {
+            cursor: pointer;
+        }
+
+        i {
+            float: right;
+            margin-left: 9%;
+        }
+
+    }
+}

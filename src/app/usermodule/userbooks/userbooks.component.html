@@ -1,0 +1,112 @@
+<app-userheader></app-userheader>
+<app-usersidenave></app-usersidenave>
+
+<section class="main">
+    <div class="container">
+        <h1 class="bookHeading">Books Section</h1>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="serch-bar">
+                    <div class="">
+                        <input type="search" id="form1" class="field" placeholder="Serch">
+                        <button class="btn btn-dark btn-sm">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!--readbookby category-->
+            <div class="col-lg-3">
+                <select class="form-select" aria-label="Default select example" [(ngModel)]="filter"
+                    (change)="readBookByCategery($event)">
+                    <option selected>Select Category</option>
+                    <option value="{{category.b_catagory}}" *ngFor="let category of readCategory?.data">
+                        {{category.b_catagory}}
+                    </option>
+                </select>
+            </div>
+
+
+        </div>
+        <h2 class="bookText">Comic Books Section</h2>
+        <div class="row ">
+            <div class="col-lg-4 col-12" *ngFor="let book of readbookcategory?.data">
+                <div class="card" (click)="bookspopup(book) " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <img src="http://images.indialisted.com/nlarge/applebees_complete_preschool_magazine_for_kids_4719090.jpg"
+                        class="card-img-top">
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <b>Title:</b> {{book?.b_title}}
+                        </h4>
+                        <h5>
+                            <b>Author:</b> {{book?.b_author}}
+                        </h5>
+                        <h5>
+                            <b>Catagory:</b> {{book?.b_catagory}}
+                        </h5>
+                        <p>
+                            <b>Count:</b> {{book?.b_count}}
+                        </p>
+                        <p>
+                            <b>Description:</b> {{book?.b_description}}
+                        </p>
+                        <p>
+                            <b>Status:</b> {{book?.b_status}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- b_author: "Tony Judt"
+b_catagory: "History"
+b_count: 5
+b_createddate: null
+b_description: "Postwar: A History of Europe Since 1945 is a 2005 non-fiction book written by British historian and scholar Tony Judt who specialised in European history. The book examines six decades of European history from the end of World War II in 1945 up to 2005"
+b_id: 2019
+b_status: 1
+b_title: "Postwar: A History of Europe Since 1945" -->
+
+
+
+<!-- booktouch Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Apple Bees</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <img
+                            src="http://images.indialisted.com/nlarge/applebees_complete_preschool_magazine_for_kids_4719090.jpg">
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="popuptext">
+                            <h4>
+                                <b>Book:</b>
+                                {{list?.b_title}}
+                            </h4>
+                            <h4>
+                                <b>Author:</b>
+                                {{list?.b_author}}
+                            </h4>
+                            <h4>
+                                <b>Desscription:</b>
+                                {{list?.b_description}}
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary btn-sm" (click)="makeTransections(list.b_id)">Issue
+                    Book</button>
+            </div>
+        </div>
+    </div>

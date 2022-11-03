@@ -1,0 +1,78 @@
+<app-header></app-header>
+<app-sidenav></app-sidenav>
+
+<section class="main">
+  <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal2">Add Category</button>
+  <div class="container">
+    <div class="row  justify-content-center ">
+      <div class="col-lg-6 col-12" *ngFor="let category of CategeryList?.data">
+        <div class="list-group">
+          <h5 class="list-group-item list-group-item-action list-group-item-primary">
+            {{category?.b_catagory}}
+            <i class="fa-solid fa-trash-can" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
+            <i class="fa-solid fa-pen-to-square" data-bs-toggle="modal" data-bs-target="#exampleModal2"></i>
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 0: {b_catagory: "dfghjk"}
+1: {b_catagory: "history"}
+2: {b_catagory: "vbn"}
+3: {b_catagory: "Science"}
+4: {b_catagory: "History"}
+5: {b_catagory: "Info"}
+6: {b_catagory: "Romantic"}
+7: {b_catagory: "Fiction"}
+8: {b_catagory: "Comedy"}
+9: {b_catagory: "RRR"} -->
+
+
+
+<!-- Delete Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        are you sure you want to delete...?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-danger">yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Add Edit Modal -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="cardpoup">
+        <div class="modal-body">
+          <div class="modal-header">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Edit Category">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Add</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
